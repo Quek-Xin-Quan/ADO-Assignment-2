@@ -1,5 +1,5 @@
 {{ config (materialized='table')}}
 
 Select*
-from 
-RAW.PRICESMART.ORDERS
+from
+{{ source('Lotso2', 'ORDERS') }}

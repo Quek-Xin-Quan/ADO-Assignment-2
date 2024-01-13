@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: Lotso2
+    database: RAW
+    schema: PRICESMART
+    tables:
+      - name: CATEGORY
+        description: raw category table
+        columns: 
+          - name: categoryid
+            description: primary identifier for category 
+            tests:
+              - not_null
+      - name: CUSTOMER
+      - name: EMPLOYEETERRITORY
+      - name: EMPLOYEE
+      - name: ORDERDETAIL
+      - name: ORDERS
+      - name: PRODUCT
+      - name: REGION
+      - name: SHIPPER
+      - name: SUPPLIER
+      - name: TERRITORY
+
+

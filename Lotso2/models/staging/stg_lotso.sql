@@ -1,123 +1,107 @@
 --{{ config (materialized = 'view')}}
+
 select
+--from raw_order
+o.orderid,
+o.orderdate,
+o.requireddate,
+o.shippeddate,
+o.shipvia,
+o.freight,
+o.shipname,
+o.shipaddress,
+o.shipcity,
+o.shipregion,
+o.shippostalcode,
+o.shipcountry,
 --from raw_employee
-employeeid,
+e.employeeid,
 lastname,
 firstname,
 title,
 titleofcourtesy,
 birthdate,
 hiredate,
-address,
-city,
-region,
-postalcode,
-country,
+e.address as employee_address,
+e.city,
+e.region,
+e.postalcode,
+e.country,
 homephone,
 extension,
 photo,
 notes,
 reportsto,
 photopath,
---from raw_employee_territory
-employeeterritoryid,
-employeeid,
-territoryid,
 --from territory 
-territoryid,
+t.territoryid,
 territorydescription,
-regionid,
 --from raw_region
-regionid,
+r.regionid,
 regiondescription
---from raw_order
-orderid,
-customerid,
-employeeid,
-orderdate,
-requireddate,
-shippeddate,
-shipvia,
-freight,
-shipname,
-shipaddress,
-shipcity,
-shipregion,
-shippostalcode,
-shipcountry,
 --from raw_customer
 customerid,
-companyname,
-contactname,
-contacttitle,
-address,
-city,
-region,
-postalcode,
-country,
-phone,
-fax,
+c.companyname,
+c.contactname,
+c.contacttitle,
+c.address as customer_address,
+c.city as cus_city,
+c.region as cus_region,
+c.postalcode as cus_postal,
+c.country as cus_country,
+c.phone as cus_phone,
+c.fax as cus_fax,
 --from raw_shipper
-shipperid,
-companyname,
-phone,
+s.shipperid,
+s.companyname,
+s.phone,
 --from raw_orderdetail
-orderdetailid,
-orderid,
-productid,
-unitprice,
-quantity,
-discount,
+od.unitprice,
+od.quantity,
+od.discount,
 --from raw_supplier
-supplierid,
-companyname,
-contactname,
-contacttitle,
-address,
-city,
-region,
-postalcode,
-country,
-phone,
-fax,
+sup.supplierid,
+sup.companyname,
+sup.contactname,
+sup.contacttitle,
+sup.address as supplieraddress,
+sup.city,
+sup.region,
+sup.postalcode,
+sup.country,
+sup.phone,
+sup.fax,
 homepage,
 --from raw_category
-categoryid,
+cat.categoryid,
 categoryname,
 description,
 --from raw_product
-productid,
+p.productid,
 productname,
-supplierid,
-categoryid,
 quantityperunit,
-unitprice,
+p.unitprice,
 unitsinstock,
 unitsonorder,
-reorderlevel,
-discontinued
-
-select * 
-from  {{ref('raw_orders')}} o
-LEFT join {{ref('raw_employee')}} e 
+discountinued
+from  {{ ref('raw_orders')}} o
+LEFT join {{ ref('raw_employee')}} e 
 on e.employeeid =  o.employeeid
-LEFT join {{ref('raw_employee_territory')}} et
+LEFT join {{ ref('raw_employee_territory')}} et
 on e.employeeid = et.employeeid
-LEFT join {{ref('raw_territory')}} as t
+LEFT join {{ ref('raw_territory')}} as t
 on et.territoryid = t.territoryid
-LEFT join  {{ref('raw_region')}} r
+LEFT join  {{ ref('raw_region')}} r
 on t.regionid = r.regionid
-LEFT join  {{ref('raw_customer')}} c 
+LEFT join  {{ ref('raw_customer')}} c 
 on c.customerid = o.customerid
-LEFT JOIN  {{ref('raw_shipper')}} s 
+LEFT JOIN  {{ ref('raw_shipper')}} s 
 on s.shipperid = o.shipvia
-LEFT JOIN  {{ref('raw_order_detail')}} od
+LEFT JOIN  {{ ref('raw_order_detail')}} od
 on o.orderid = od.orderid
-LEFT JOIN  {{ref('raw_product')}} p
+LEFT JOIN  {{ ref('raw_product')}} p
 on od.productid = p.productid
-LEFT JOIN  {{ref('raw_category')}} cat
+LEFT JOIN  {{ ref('raw_category')}} cat
 on p.categoryid = cat.categoryid
-LEFT JOIN  {{ref('raw_supplier')}} sup
+LEFT JOIN  {{ ref('raw_supplier')}} sup
 on p.supplierid = sup.supplierid
-
-
