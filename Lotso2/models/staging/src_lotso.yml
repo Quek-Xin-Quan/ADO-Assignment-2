@@ -19,8 +19,14 @@ sources:
       - name: ORDERS
       - name: PRODUCT
       - name: REGION
+        description: data about region
       - name: SHIPPER
+        description: new data to be appended to ORDERS table
       - name: SUPPLIER
       - name: TERRITORY
+      - name: ORDER_FRESH
+        description: new data to be appended to ORDERS table
+      - name: ORDER_DETAIL_FRESH
+        description: new data to be appended to ORDERDETAIL table
 
 
