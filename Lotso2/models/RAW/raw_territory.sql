@@ -1,5 +1,5 @@
 {{ config (materialized='table')}}
 
 Select*
-from 
-RAW.PRICESMART.TERRITORY
+from
+{{ source('Lotso2', 'TERRITORY') }}
