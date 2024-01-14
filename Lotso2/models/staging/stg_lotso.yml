@@ -1,0 +1,8 @@
+version: 2
+# for documentation  of the sql (depends via the needs of the staging view)
+models:
+  - name: stg_lotso
+    description: one unique order per row
+    columns:
+      - name: orderid
+        description: the primary key for stg_lotso
