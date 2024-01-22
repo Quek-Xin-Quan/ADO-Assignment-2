@@ -45,6 +45,3 @@ models:
    FRESH_ORDER_DETAILS:
      +materialized: table
      unique key: ORDERID
-     
-
-
