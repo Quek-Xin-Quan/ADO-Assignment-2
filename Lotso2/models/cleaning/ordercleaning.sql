@@ -1,4 +1,4 @@
--- Geraldine and Neron
+
 -- Retriving rows where any variable is null
 -- SELECT * 
 -- FROM raw_orders 

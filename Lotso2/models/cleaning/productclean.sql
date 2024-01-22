@@ -10,6 +10,9 @@ select * from raw_orders where employeeid = ' '
 -- order (updated)
 -- shippeddate contains missing values.
 
+update order 
+set shippeddate
+
 SELECT * FROM orders where shippeddate is null
 
 UPDATE raw_orders
