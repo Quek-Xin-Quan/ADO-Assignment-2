@@ -7,7 +7,7 @@ models:
         tests: 
           - not_null
           - unique
-      - name: employee_id
+      - name: employeeid
         tests: 
           - not_null      
       - name: customerid
@@ -25,15 +25,14 @@ models:
         tests:
           - unique
           - not_null
-  # - name: raw_order_detail
-  #   columns:
-  #     - name: orderid
-  #       tests:
-  #         - unique
-  #         - not_null
-      # - name: productid
-      #   tests: 
-      #     - not_null
+  - name: raw_order_detail
+    columns:
+      - name: orderid
+        tests:
+          - not_null
+      - name: productid
+        tests: 
+          - not_null
   - name: raw_product
     columns:
       - name: productid

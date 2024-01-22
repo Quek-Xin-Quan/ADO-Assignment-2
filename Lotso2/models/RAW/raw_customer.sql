@@ -1,7 +1,5 @@
-
 {{ config (materialized='table')}}
 
-Select*
-from
-{{ source('Lotso2', 'CUSTOMER')}}
+SELECT * FROM
+{{ source('Lotso2', 'CUSTOMER') }}
 
