@@ -15,8 +15,3 @@ WHERE customerid IN (
     HAVING COUNT(*) > 1
 );      
 
-SELECT customerid
-FROM raw_customer
-GROUP BY customerid
-HAVING COUNT(*) > 1;
-
