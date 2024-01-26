@@ -21,13 +21,13 @@ WHERE Homepage = 'NULL';
 -- GROUP BY supplierid
 -- HAVING COUNT(*) > 1;
 
-DELETE FROM raw_product
-WHERE supplierid IN (
-    SELECT supplierid
-    FROM raw_product
-    GROUP BY supplierid
-    HAVING COUNT(*) > 1
-);          
+-- DELETE FROM raw_product
+-- WHERE supplierid IN (
+--     SELECT supplierid
+--     FROM raw_product
+--     GROUP BY supplierid
+--     HAVING COUNT(*) > 1
+-- );          
     
 
 

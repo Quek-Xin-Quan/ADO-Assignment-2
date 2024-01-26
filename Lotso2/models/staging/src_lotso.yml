@@ -26,7 +26,8 @@ sources:
       - name: TERRITORY
       - name: FRESH_ORDERS
         description: new data to be appended to ORDERS table
-      - name: ORDER_DETAIL_FRESH
+        columns: 
+          - name: ORDERID
+            description: primary key for FRESH_ORDERS
+      - name: FRESH_ORDER_DETAILS
         description: new data to be appended to ORDERDETAIL table
-
-

@@ -76,10 +76,17 @@ models:
         tests: 
           - not_null
           - unique
-
-
-          
-
-
-
-
+  - name: fresh_orders
+    columns:
+      - name: ORDERID
+        tests: 
+          - not_null
+          - unique
+  - name: fresh_order_details
+    columns: 
+      - name: ORDERID
+        tests:
+          - not_null
+      - name: PRODUCTID
+        tests: 
+          - not_null
