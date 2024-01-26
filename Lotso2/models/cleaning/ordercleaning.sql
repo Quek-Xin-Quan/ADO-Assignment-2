@@ -23,6 +23,10 @@ UPDATE raw_orders
 SET Shipregion = CASE WHEN Shipregion = 'NULL' THEN 'No Region' ELSE Shipregion END
 WHERE Shipregion = 'NULL';
 
+UPDATE raw_orders
+SET Shippostalcode = CASE WHEN Shippostalcode = 'NULL' THEN 'No Postal' ELSE Shippostalcode END
+WHERE Shippostalcode = 'NULL';
+
 
  UPDATE raw_orders
  SET shippeddate = (
