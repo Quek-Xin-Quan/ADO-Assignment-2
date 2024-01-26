@@ -27,7 +27,4 @@ WHERE Homepage = 'NULL';
 --     FROM raw_product
 --     GROUP BY supplierid
 --     HAVING COUNT(*) > 1
--- );          
-    
-
-
+-- );    
