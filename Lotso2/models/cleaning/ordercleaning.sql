@@ -16,22 +16,22 @@
 --   shippostalcode IS NULL OR 
 --   shipcountry IS NULL;
 
-DELETE FROM raw_orders
-WHERE orderid IS NULL;
+-- DELETE FROM raw_orders
+-- WHERE orderid IS NULL;
 
-UPDATE raw_orders
-SET Shipregion = CASE WHEN Shipregion = 'NULL' THEN 'No Region' ELSE Shipregion END
-WHERE Shipregion = 'NULL';
+-- UPDATE raw_orders
+-- SET Shipregion = CASE WHEN Shipregion = 'NULL' THEN 'No Region' ELSE Shipregion END
+-- WHERE Shipregion = 'NULL';
 
-UPDATE raw_orders
-SET Shippostalcode = CASE WHEN Shippostalcode = 'NULL' THEN 'No Postal' ELSE Shippostalcode END
-WHERE Shippostalcode = 'NULL';
+-- UPDATE raw_orders
+-- SET Shippostalcode = CASE WHEN Shippostalcode = 'NULL' THEN 'No Postal' ELSE Shippostalcode END
+-- WHERE Shippostalcode = 'NULL';
 
 
- UPDATE raw_orders
- SET shippeddate = (
-     SELECT LAG(shippeddate) OVER (ORDER BY orderid)
-     FROM raw_orders AS ro
-     WHERE ro.orderid = raw_orders.orderid
- )
- WHERE shippeddate = '2024-01-01 00:00:00.000';
+--  UPDATE raw_orders
+--  SET shippeddate = (
+--      SELECT LAG(shippeddate) OVER (ORDER BY orderid)
+--      FROM raw_orders AS ro
+--      WHERE ro.orderid = raw_orders.orderid
+--  )
+--  WHERE shippeddate = '2024-01-01 00:00:00.000';
