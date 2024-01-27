@@ -1,3 +1,5 @@
+
+# NOT USING STAGING
 version: 2
 # for documentation  of the sql (depends via the needs of the staging view)
 models:

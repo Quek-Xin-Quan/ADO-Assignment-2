@@ -1,15 +1,15 @@
--- changing naming convention of null values
-UPDATE raw_supplier
-SET Region = CASE WHEN Region = 'NULL' THEN 'No Region' ELSE Region END
-WHERE Region = 'NULL';
+-- -- changing naming convention of null values
+-- UPDATE raw_supplier
+-- SET Region = CASE WHEN Region = 'NULL' THEN 'No Region' ELSE Region END
+-- WHERE Region = 'NULL';
 
-UPDATE raw_supplier
-SET Fax = CASE WHEN Fax = 'NULL' THEN 'No Fax' ELSE Fax END
-WHERE Fax = 'NULL';
+-- UPDATE raw_supplier
+-- SET Fax = CASE WHEN Fax = 'NULL' THEN 'No Fax' ELSE Fax END
+-- WHERE Fax = 'NULL';
 
-UPDATE raw_supplier
-SET Homepage = CASE WHEN Homepage = 'NULL' THEN 'No Homepage' ELSE Homepage END
-WHERE Homepage = 'NULL';
+-- UPDATE raw_supplier
+-- SET Homepage = CASE WHEN Homepage = 'NULL' THEN 'No Homepage' ELSE Homepage END
+-- WHERE Homepage = 'NULL';
 
 -- SELECT * FROM RAW_SUPPLIER 
 -- WHERE RAW_SUPPLIER.HOMEPAGE = 'NULL' 
@@ -28,3 +28,4 @@ WHERE Homepage = 'NULL';
 --     GROUP BY supplierid
 --     HAVING COUNT(*) > 1
 -- );    
+

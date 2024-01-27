@@ -1,3 +1,4 @@
+-- NOT USING STAGING
 {# --{{ config (materialized = 'view')}}
 
 select
