@@ -39,9 +39,6 @@ models:
         tests:
           - unique
           - not_null
-      - name: supplierid
-        tests: 
-          - unique
       - name: categoryid
         tests:
           - not_null  
