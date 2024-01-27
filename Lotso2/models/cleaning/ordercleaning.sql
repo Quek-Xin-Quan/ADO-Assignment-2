@@ -23,15 +23,15 @@ UPDATE raw_orders
 SET Shipregion = CASE WHEN Shipregion = 'NULL' THEN 'No Region' ELSE Shipregion END
 WHERE Shipregion = 'NULL';
 
--- changing null values to a value 30 days after order date as thats the average time taken
--- UPDATE raw_orders
--- SET shippeddate = DATEADD(DAY, 7, orderdate)
--- WHERE shippeddate IS NULL;
+UPDATE raw_orders
+SET Shippostalcode = CASE WHEN Shippostalcode = 'NULL' THEN 'No Postal' ELSE Shippostalcode END
+WHERE Shippostalcode = 'NULL';
 
--- UPDATE raw_orders
--- SET shippeddate = (
---     SELECT LAG(shippeddate) OVER (ORDER BY orderid)
---     FROM raw_orders AS ro
---     WHERE ro.orderid = raw_orders.orderid
--- )
--- WHERE shippeddate = '2024-01-01 00:00:00.000';
+
+ UPDATE raw_orders
+ SET shippeddate = (
+     SELECT LAG(shippeddate) OVER (ORDER BY orderid)
+     FROM raw_orders AS ro
+     WHERE ro.orderid = raw_orders.orderid
+ )
+ WHERE shippeddate = '2024-01-01 00:00:00.000';

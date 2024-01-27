@@ -1,7 +1,7 @@
 
--- UPDATE raw_employee
--- SET Region = CASE WHEN Region = 'NULL' THEN 'No Region' ELSE Region END
--- WHERE Region = 'NULL';
+UPDATE raw_employee
+SET Region = CASE WHEN Region = 'NULL' THEN 'No Region' ELSE Region END
+WHERE Region = 'NULL';
 
 -- /* 
 -- getting/checking rows to see if rows are still 'NULL'
