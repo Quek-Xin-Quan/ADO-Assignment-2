@@ -1,4 +1,4 @@
 {{config(materialized='table')}}
 
 SELECT * FROM 
-{{ source('Lotso2', 'FRESH_ORDER_DETAILS' )}}
+{{ source('Lotso2', 'ORDER_DETAIL_FRESH' )}}

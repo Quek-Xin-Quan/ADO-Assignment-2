@@ -88,8 +88,10 @@ sources:
         columns: 
           - name: ORDERID
             description: primary key for FRESH_ORDERS
-      - name: FRESH_ORDER_DETAILS
+      - name: ORDER_DETAIL_FRESH
         description: new data to be appended to ORDERDETAIL table
+      - name: FRESH_ORDER_DETAILS
+        description: new data to be appended to ORDERDETAIL table  
       - name: CUSTOMER
         description: raw customer table
         columns:
