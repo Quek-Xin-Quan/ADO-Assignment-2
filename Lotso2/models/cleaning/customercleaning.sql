@@ -1,4 +1,4 @@
---Changing the naming convention of missing values
+-- --Changing the naming convention of missing values
 UPDATE raw_customer
 SET Fax = CASE WHEN Fax = 'NULL' THEN 'No Fax' ELSE Fax END
 WHERE Fax = 'NULL';
@@ -9,14 +9,8 @@ WHERE Region = 'NULL';
 
 DELETE FROM raw_customer
 WHERE customerid IN (
-    SELECT customerid
-    FROM raw_customer
-    GROUP BY customerid
-    HAVING COUNT(*) > 1
-);      
-
-SELECT customerid
-FROM raw_customer
-GROUP BY customerid
-HAVING COUNT(*) > 1;
+          SELECT customerid
+      FROM raw_customer
+      GROUP BY customerid
+      HAVING COUNT(*) > 1  );      
 

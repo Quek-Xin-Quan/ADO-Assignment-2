@@ -39,9 +39,6 @@ models:
         tests:
           - unique
           - not_null
-      - name: supplierid
-        tests: 
-          - unique
       - name: categoryid
         tests:
           - not_null  
@@ -76,10 +73,17 @@ models:
         tests: 
           - not_null
           - unique
-
-
-          
-
-
-
-
+  - name: fresh_orders
+    columns:
+      - name: ORDERID
+        tests: 
+          - not_null
+          - unique
+  - name: fresh_order_details
+    columns: 
+      - name: ORDERID
+        tests:
+          - not_null
+      - name: PRODUCTID
+        tests: 
+          - not_null
