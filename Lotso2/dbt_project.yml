@@ -33,18 +33,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   Lotso2:
     # Config indicated by + and applies to all files under models/example/
-   raw:
-     +materialized: table
-   staging:
-     +materialized: view
-   reporting:
-     +materialized: table
-   ORDER_FRESH:
-     +materialized: table
-     unique_key: ORDERID
-   ORDER_DETAIL_FRESH:
-     +materialized: table
-     unique key: ORDERID
-     
-
-
+    RAW:
+      +materialized: table   
+    staging:
+      +materialized: view
+    reporting:
+      +materialized: table
+    FRESH_ORDERS:
+      +materialized: table
+      unique_key: ORDERID
+    ORDER_DETAIL_FRESH:
+      +materialized: table

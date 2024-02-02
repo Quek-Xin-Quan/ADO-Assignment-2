@@ -12,21 +12,98 @@ sources:
             description: primary identifier for category 
             tests:
               - not_null
-      - name: CUSTOMER
-      - name: EMPLOYEETERRITORY
       - name: EMPLOYEE
+        description: raw employee table
+        columns: 
+          - name: EmployeeID
+            description: primary identifier for each employee
+            tests: 
+              - not_null
+              - unique
       - name: ORDERDETAIL
+        description: Contains details of each order for each product such as unit price
+        columns: 
+          - name: OrderID 
+            description: foreign key to identify each order
+            tests: 
+              - not_null
+          - name: ProductID
+            description: foreign key to identify each product
+            tests:
+              - not_null
       - name: ORDERS
+        description: raw order table
+        columns: 
+          - name: OrderID
+            description: Primary identifier for each order
+            tests: 
+              - not_null
+              - unique
+          - name: CustomerID
+            description: Foreign key to identify each customer
+          - name: EmployeeID
+            description: Foreign key to identify Employee
+          - name: ShipVia
+            description: Foreign key to identify Shipper            
       - name: PRODUCT
+        description: raw product table
+        columns: 
+          - name: ProductID
+            description: Primary identifier for each product
+            tests: 
+              - not_null
+              - unique
+          - name: SupplierID
+            description: Foreign key for each supplier
+          - name: CategoryID
+            description: Foreign key for each category
       - name: REGION
         description: data about region
+        columns:
+          - name: RegionID
+            description: raw region table
+            test:
+              - not_null
+              - unique
       - name: SHIPPER
-        description: new data to be appended to ORDERS table
+        description: raw shipper table
+        columns:
+          - name: ShipperID
+            description: Primary Identifier for each shipper
       - name: SUPPLIER
+        description: raw supplier table
+        columns:
+          - name: SupplierID
+            description: Primary Identifier for each supplier
       - name: TERRITORY
-      - name: ORDER_FRESH
+        description: raw territory table
+        columns: 
+          - name: TerritoryID
+            description: Primary identifier for each territory
+            tests:
+              - not_null
+              - unique
+      - name: FRESH_ORDERS
         description: new data to be appended to ORDERS table
+        columns: 
+          - name: ORDERID
+            description: primary key for FRESH_ORDERS
       - name: ORDER_DETAIL_FRESH
         description: new data to be appended to ORDERDETAIL table
-
-
+      - name: FRESH_ORDER_DETAILS
+        description: new data to be appended to ORDERDETAIL table  
+      - name: CUSTOMER
+        description: raw customer table
+        columns:
+          - name: CustomerID
+            description: primary identifier for each customer
+            tests:
+              - not_null
+              - unique
+      - name: EMPLOYEETERRITORY
+        description: raw employee territory table
+        columns: 
+          - name: EmployeeID
+            description: Foreign key for employee 
+          - name: TerritoryID
+            description: Foreign key for territory

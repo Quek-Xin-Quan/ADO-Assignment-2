@@ -1,4 +1,5 @@
---{{ config (materialized = 'view')}}
+-- NOT USING STAGING
+{# --{{ config (materialized = 'view')}}
 
 select
 --from raw_order
@@ -104,4 +105,7 @@ on od.productid = p.productid
 LEFT JOIN  {{ ref('raw_category')}} cat
 on p.categoryid = cat.categoryid
 LEFT JOIN  {{ ref('raw_supplier')}} sup
-on p.supplierid = sup.supplierid
+on p.supplierid = sup.supplierid #}
+
+
+      
