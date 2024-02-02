@@ -12,21 +12,6 @@ sources:
             description: primary identifier for category 
             tests:
               - not_null
-      - name: CUSTOMER
-        decription: raw customer table
-        columns:
-          - name: CustomerID
-            description: primary identifier for each customer
-            tests:
-              - not_null
-              - unique
-      - name: EMPLOYEETERRITORY
-        decription: raw employee territory table
-        columns: 
-          - name: EmployeeID
-            description: Foreign key for employee 
-          - name: TerritoryID
-            description: Foreign key for territory
       - name: EMPLOYEE
         description: raw employee table
         columns: 
@@ -103,5 +88,22 @@ sources:
         columns: 
           - name: ORDERID
             description: primary key for FRESH_ORDERS
-      - name: FRESH_ORDER_DETAILS
+      - name: ORDER_DETAIL_FRESH
         description: new data to be appended to ORDERDETAIL table
+      - name: FRESH_ORDER_DETAILS
+        description: new data to be appended to ORDERDETAIL table  
+      - name: CUSTOMER
+        description: raw customer table
+        columns:
+          - name: CustomerID
+            description: primary identifier for each customer
+            tests:
+              - not_null
+              - unique
+      - name: EMPLOYEETERRITORY
+        description: raw employee territory table
+        columns: 
+          - name: EmployeeID
+            description: Foreign key for employee 
+          - name: TerritoryID
+            description: Foreign key for territory

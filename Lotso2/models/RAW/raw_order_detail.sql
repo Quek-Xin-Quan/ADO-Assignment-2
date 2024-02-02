@@ -6,8 +6,8 @@ FROM {{ ref ('fresh_order_details') }}
 WHERE CAST(ORDERID AS BIGINT) > (SELECT MAX(CAST(ORDERID AS BIGINT))  FROM {{this}})
 {% endif %}
 
---{{ config (materialized='table')}}
+{# {{ config (materialized='table')}}
 
---Select*
---from
---{{ source('Lotso2', 'ORDERDETAIL') }}
+Select*
+from
+{{ source('Lotso2', 'ORDERDETAIL') }} #}
